@@ -1,0 +1,77 @@
+/* 🎨 Navbar Container */
+nav {
+  background: linear-gradient(90deg, #000000, #1a1a1a); /* sleek gradient */
+  color: white;
+  padding: 14px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔗 Navbar Links */
+nav a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease-in-out;
+}
+
+/* 🌟 Hover effect for links */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #00ffcc;
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #00ffcc;
+}
+
+/* 🔘 Buttons (Login / Logout) */
+nav button,
+nav a.ml-auto {
+  margin-left: auto;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+/* ✅ Logout button */
+nav button {
+  background: white;
+  color: black;
+}
+
+nav button:hover {
+  background: #f3f3f3;
+  transform: scale(1.05);
+}
+
+/* ✅ GitHub login button */
+nav a.ml-auto {
+  background: #2ea44f;
+  color: white;
+}
+
+nav a.ml-auto:hover {
+  background: #22863a;
+  transform: scale(1.05);
+}

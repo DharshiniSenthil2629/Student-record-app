@@ -1,0 +1,69 @@
+/* 🎨 Container styling */
+.add-student-container {
+  width: 320px;               /* small box */
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* 🏷 Title */
+.add-student-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* 📋 Form styling */
+.add-student-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 🔤 Labels */
+.add-student-container label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 3px;
+  color: #444;
+}
+
+/* 🔲 Inputs */
+.add-student-container input[type="text"],
+.add-student-container input[type="email"],
+.add-student-container input[type="file"] {
+  padding: 8px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.2s ease-in-out;
+}
+
+/* ✨ Focus effect */
+.add-student-container input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* 📤 Submit Button */
+.add-student-container button {
+  background: #007bff;
+  color: white;
+  padding: 8px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.add-student-container button:hover {
+  background: #0056b3;
+}
