@@ -1,25 +1,12 @@
-'use client';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-
-export default function Dashboard() {
-  const [students, setStudents] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/students')
-      .then(res => setStudents(res.data.slice(0, 5)));
-  }, []);
-
+export default function Home() {
   return (
-    <div>
-      <h1>Recently Added Students</h1>
-      <ul>
-        {students.map(s => (
-          <li key={s._id}>
-            {s.name} ({s.rollNo})
-          </li>
-        ))}
-      </ul>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>🎓 Welcome to Student Record App</h1>
+      <p>
+        👉 Go to your <a href="/dashboard" style={{ color: "blue", textDecoration: "underline" }}>
+          Dashboard
+        </a>
+      </p>
     </div>
   );
 }
