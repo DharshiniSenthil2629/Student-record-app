@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image"; // ✅ import Next.js Image component
 
 export default function ViewStudents() {
   const [students, setStudents] = useState([]);
@@ -122,12 +123,13 @@ export default function ViewStudents() {
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img
+            {/* ✅ Image updated */}
+            <Image
               src={student.photo || "/default-avatar.png"}
               alt="Student"
+              width={70}
+              height={70}
               style={{
-                width: "70px",
-                height: "70px",
                 objectFit: "cover",
                 borderRadius: "50%",
                 marginBottom: "8px",
@@ -196,36 +198,25 @@ export default function ViewStudents() {
             {/* ✅ Display OR Edit Mode */}
             {!editMode ? (
               <>
-                <img
+                {/* ✅ Image updated */}
+                <Image
                   src={selectedStudent.photo || "/default-avatar.png"}
                   alt={selectedStudent.name}
+                  width={180}
+                  height={180}
                   style={{
-                    width: "180px",
-                    height: "180px",
                     objectFit: "cover",
                     borderRadius: "10px",
                     marginBottom: "15px",
                   }}
                 />
                 <h2>{selectedStudent.name}</h2>
-                <p>
-                  <strong>Roll No:</strong> {selectedStudent.rollNumber}
-                </p>
-                <p>
-                  <strong>Department:</strong> {selectedStudent.department}
-                </p>
-                <p>
-                  <strong>Father:</strong> {selectedStudent.fatherName}
-                </p>
-                <p>
-                  <strong>Domain Mail:</strong> {selectedStudent.domainMail}
-                </p>
-                <p>
-                  <strong>Personal Mail:</strong> {selectedStudent.personalMail}
-                </p>
-                <p>
-                  <strong>Phone:</strong> {selectedStudent.phone}
-                </p>
+                <p><strong>Roll No:</strong> {selectedStudent.rollNumber}</p>
+                <p><strong>Department:</strong> {selectedStudent.department}</p>
+                <p><strong>Father:</strong> {selectedStudent.fatherName}</p>
+                <p><strong>Domain Mail:</strong> {selectedStudent.domainMail}</p>
+                <p><strong>Personal Mail:</strong> {selectedStudent.personalMail}</p>
+                <p><strong>Phone:</strong> {selectedStudent.phone}</p>
 
                 {/* ✅ Edit & Delete Buttons */}
                 <button
