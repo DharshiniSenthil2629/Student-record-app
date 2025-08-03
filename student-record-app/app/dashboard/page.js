@@ -1,10 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Image from "next/image";   // ✅ import Image
 
 export default function Dashboard() {
   const [students, setStudents] = useState([]);
-  const [selectedStudent, setSelectedStudent] = useState(null); // ✅ to hold clicked student
+  const [selectedStudent, setSelectedStudent] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/students/recent')
@@ -17,10 +18,11 @@ export default function Dashboard() {
       <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '20px' }}>
         🎓 Recently Added Students
       </h1>
+
       <div className="dashboard-grid">
-  <div className="card">📊 Total Students: 50</div>
-  <div className="card">🎓 CSE Students: 20</div>
-</div>
+        <div className="card">📊 Total Students: 50</div>
+        <div className="card">🎓 CSE Students: 20</div>
+      </div>
 
       {/* ✅ Student Cards */}
       <div style={{
@@ -44,13 +46,13 @@ export default function Dashboard() {
             onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
           >
-            {/* ✅ Student Photo */}
-            <img
+            {/* ✅ Student Photo with Next/Image */}
+            <Image
               src={student.photo || '/default-avatar.png'}
               alt={student.name}
+              width={100}
+              height={100}
               style={{
-                width: '100px',
-                height: '100px',
                 objectFit: 'cover',
                 borderRadius: '50%',
                 marginBottom: '10px'
@@ -64,7 +66,7 @@ export default function Dashboard() {
 
             {/* ✅ View Button */}
             <button
-              onClick={() => setSelectedStudent(student)} // 🔥 Open modal with this student’s info
+              onClick={() => setSelectedStudent(student)}
               style={{
                 marginTop: '10px',
                 background: '#4CAF50',
@@ -94,7 +96,7 @@ export default function Dashboard() {
           justifyContent: 'center',
           alignItems: 'center'
         }}
-        onClick={() => setSelectedStudent(null)} // close modal if background is clicked
+        onClick={() => setSelectedStudent(null)}
         >
           <div
             style={{
@@ -105,7 +107,7 @@ export default function Dashboard() {
               textAlign: 'center',
               position: 'relative'
             }}
-            onClick={(e) => e.stopPropagation()} // ✅ prevent closing when clicking inside the modal
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
@@ -123,18 +125,19 @@ export default function Dashboard() {
               ❌
             </button>
 
-            {/* Student Info in Modal */}
-            <img
+            {/* ✅ Student Image in Modal with Next/Image */}
+            <Image
               src={selectedStudent.photo || '/default-avatar.png'}
               alt={selectedStudent.name}
+              width={120}
+              height={120}
               style={{
-                width: '120px',
-                height: '120px',
                 objectFit: 'cover',
                 borderRadius: '50%',
                 marginBottom: '10px'
               }}
             />
+
             <h2>{selectedStudent.name}</h2>
             <p><strong>Roll Number:</strong> {selectedStudent.rollNumber}</p>
             <p><strong>Department:</strong> {selectedStudent.department}</p>
