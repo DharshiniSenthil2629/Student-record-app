@@ -8,13 +8,13 @@ export default function StudentDetails({ params }) {
     fetch(`http://localhost:5000/api/students/${params.id}`)
       .then(res => res.json())
       .then(data => setStudent(data));
-  }, []);
+  }, [params.id]); // ✅ fixed ESLint warning
 
   if (!student) return <p>Loading...</p>;
 
   return (
     <div>
-      <h2 className="text-xl mb-4">{student.name}'s Profile</h2>
+      <h2 className="text-xl mb-4">{student.name}&apos;s Profile</h2> {/* ✅ apostrophe fixed */}
       <p><strong>Father Name:</strong> {student.fatherName}</p>
       <p><strong>Domain Mail:</strong> {student.domainMail}</p>
       <p><strong>Personal Mail:</strong> {student.personalMail}</p>
